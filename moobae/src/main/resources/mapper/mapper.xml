@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.moobae.domain.mapper.UserMapper">
+    <insert id="saveUser" parameterType="com.example.moobae.domain.member.Member">
+        INSERT INTO user_db (id, identity, password, nickname, email, phone_number,
+        local, activated, existed, updated_at, created_at)
+        VALUES(#{id},#{identity},#{password},#{nickname},#{email},#{phoneNumber},
+        #{local},#{activated},#{existed},#{updated_at},#{created_at});
+    </insert>
+</mapper>
