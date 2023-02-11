@@ -4,6 +4,6 @@ import com.example.moobae.domain.member.Member;
 import org.apache.ibatis.annotations.Mapper;
 
 @Mapper
-public interface UserMapper {
-    void saveUser(Member member);
+public interface MemberMapper {
+    void saveMember(Member member);
 }
