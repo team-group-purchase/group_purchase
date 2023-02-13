@@ -5,29 +5,22 @@ import com.example.moobae.domain.service.MemberService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 @Controller //view를 반환
-//@RequestMapping("/signUp") //요청받을 url
-@RequiredArgsConstructor //final 붙은 메소드or필드or클래스에 대한 생성자 자동생성
+@RequestMapping("/sign-up") //요청받을 url
+@RequiredArgsConstructor
 public class MemberController {
     @Autowired
     MemberService memberService;
-
-    @GetMapping("/signUp")
+    @GetMapping()
     public String signUpForm() {
-        return "signUp";
+        return "sign-up";
     }
-
-    @PostMapping("/signUp")
-    public String signUp(Member member) {
+    @PostMapping()
+    public String signUp(@RequestBody Member member) { //쿼리스트링(url), json, html form방식
         memberService.joinMember(member);
         return "redirect:login";
     }
-
-
-
-
 }
 
