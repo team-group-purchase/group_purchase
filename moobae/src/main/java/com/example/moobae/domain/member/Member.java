@@ -1,14 +1,16 @@
 package com.example.moobae.domain.member;
 
+import lombok.Builder;
 import lombok.Data;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
 import java.time.LocalDateTime;
-@Getter //자바 reflection보기
+@Builder(builderMethodName = "MemberBuilder")
+@Getter //자바 reflection
 @RequiredArgsConstructor
 public class Member {
-    private final int id;
+    private final Integer id;
     private final String identity;
     private final String password;
     private final String nickname;

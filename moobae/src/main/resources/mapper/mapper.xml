@@ -7,6 +7,6 @@
         INSERT INTO user_db (identity, password, nickname, email, phone_number,
         local, activated, existed, updated_at, created_at)
         VALUES(#{identity},#{password},#{nickname},#{email},#{phoneNumber},
-        #{local},#{activated},#{existed},#{updated_at},#{created_at});
+        #{local},#{activated},#{existed},#{updatedAt},#{createdAt});
     </insert>
 </mapper>
