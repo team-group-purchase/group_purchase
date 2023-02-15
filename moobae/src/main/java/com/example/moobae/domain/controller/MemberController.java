@@ -1,6 +1,8 @@
 package com.example.moobae.domain.controller;
 
+import com.example.moobae.domain.mapper.MemberMapper;
 import com.example.moobae.domain.member.MemberDTO;
+import com.example.moobae.domain.member.MemberVO;
 import com.example.moobae.domain.service.MemberService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,20 +13,28 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Objects;
 
-@Controller //view를 반환
-@RequestMapping("/sign-up") //요청받을 url
+@Controller
+@RequestMapping
 @RequiredArgsConstructor
 public class MemberController {
-    @Autowired
-    MemberService memberService;
-    @GetMapping()
-    public String signUpForm() {
-        return "sign-up";
+    private final MemberService memberService;
+    private final MemberMapper memberMapper;
+    @GetMapping("/sign-up")
+    public ResponseEntity<Objects> signUpForm() {
+        return new ResponseEntity("Sign Up" ,HttpStatus.OK);
     }
-    @PostMapping()
-    public ResponseEntity<Objects> signUp(@RequestBody MemberDTO memberDTO) { //쿼리스트링(url), json, html form방식
+    @PostMapping("/sign-up")
+    public ResponseEntity<Objects> signUp(@RequestBody MemberDTO memberDTO) {
         memberService.joinMember(memberDTO);
-        return new ResponseEntity("Success!" ,HttpStatus.OK);
+        return new ResponseEntity("Sign Up Success!" ,HttpStatus.OK);
+    }
+
+    @PostMapping("/login")
+    public ResponseEntity<Objects> login(@RequestBody MemberDTO memberDTO) {
+        if (memberService.checkMember(memberDTO , memberMapper.loadMember(memberDTO)))
+            return new ResponseEntity("Login Success!" , HttpStatus.OK);
+        else
+            return new ResponseEntity("Login Failure!" , HttpStatus.BAD_REQUEST);
     }
 }
 

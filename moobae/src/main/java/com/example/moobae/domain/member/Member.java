@@ -7,7 +7,7 @@ import lombok.RequiredArgsConstructor;
 
 import java.time.LocalDateTime;
 @Builder(builderMethodName = "MemberBuilder")
-@Getter //자바 reflection
+@Getter
 @RequiredArgsConstructor
 public class Member {
     private final Integer id;
