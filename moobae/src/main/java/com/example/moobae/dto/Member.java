@@ -5,6 +5,8 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDateTime;
+
 @Getter
 @Builder
 @NoArgsConstructor
@@ -28,7 +30,7 @@ public class Member {
 
     private boolean existed;
 
-    private String created_at;
+    private LocalDateTime created_at;
 
-    private String updated_at;
+    private LocalDateTime updated_at;
 }

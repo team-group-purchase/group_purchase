@@ -3,11 +3,25 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
+
 <mapper namespace="com.example.moobae.mapper.MemberMapper">
 
     <insert id="insert" parameterType="com.example.moobae.dto.Member">
-        INSERT INTO user(identity, password, nickname, email, phone_number, local, activated, existed, created_at, updated_at)
-        VALUES ( #{identity}, #{password}, #{nickname}, #{email}, #{phoneNumber}, #{local}, true, true, NOW(), NOW())
+        INSERT INTO user(identity, password, nickname, email, phone_number, local, activated, existed, created_at,
+                         updated_at)
+        VALUES (#{identity}, #{password}, #{nickname}, #{email}, #{phoneNumber}, #{local}, true, true, now(), now())
     </insert>
+
+    <select id="getUserInfo" resultType="com.example.moobae.dto.Member">
+        SELECT *
+        FROM user
+        WHERE identity = #{identity}
+    </select>
+
+    <select id="checkDuplicate" resultType="int">
+        SELECT id
+        FROM user
+        WHERE identity = #{identity}
+    </select>
 
 </mapper>
