@@ -1,4 +1,4 @@
-package com.example.moobae.domain.member;
+package com.example.moobae.domain.member.dto;
 
 import lombok.Getter;
 

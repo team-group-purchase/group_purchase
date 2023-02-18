@@ -1,4 +1,4 @@
-package com.example.moobae.domain.service;
+package com.example.moobae.service;
 
 import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.stereotype.Component;

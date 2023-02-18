@@ -1,11 +1,9 @@
-package com.example.moobae.domain.controller;
+package com.example.moobae.controller;
 
 import com.example.moobae.domain.mapper.MemberMapper;
-import com.example.moobae.domain.member.MemberDTO;
-import com.example.moobae.domain.member.MemberVO;
-import com.example.moobae.domain.service.MemberService;
+import com.example.moobae.domain.member.dto.MemberDTO;
+import com.example.moobae.service.MemberService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;

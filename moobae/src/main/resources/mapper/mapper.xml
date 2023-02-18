@@ -12,7 +12,7 @@
     </insert>
 
     <!-- 로그인 -->
-    <select id="loadMember" parameterType="com.example.moobae.domain.member.MemberDTO" resultType="com.example.moobae.domain.member.MemberVO">
+    <select id="loadMember" parameterType="com.example.moobae.domain.member.dto.MemberDTO" resultType="com.example.moobae.domain.member.vo.MemberVO">
         SELECT identity as identity, password as password FROM user_db WHERE identity=#{identity}
     </select>
 </mapper>

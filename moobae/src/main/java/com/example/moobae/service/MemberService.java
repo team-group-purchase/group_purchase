@@ -1,9 +1,9 @@
-package com.example.moobae.domain.service;
+package com.example.moobae.service;
 
 import com.example.moobae.domain.mapper.MemberMapper;
 import com.example.moobae.domain.member.Member;
-import com.example.moobae.domain.member.MemberDTO;
-import com.example.moobae.domain.member.MemberVO;
+import com.example.moobae.domain.member.dto.MemberDTO;
+import com.example.moobae.domain.member.vo.MemberVO;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import java.time.LocalDateTime;
