@@ -22,7 +22,7 @@ public class MemberController {
     public ResponseEntity<Objects> signup(@RequestBody MemberDTO memberDTO) {
         try {
             memberService.signup(memberDTO);
-            return new ResponseEntity("signup Success!", HttpStatus.OK);
+            return new ResponseEntity("회원가입 성공", HttpStatus.CREATED);
         } catch (IllegalArgumentException e) {
             return new ResponseEntity(e.getMessage(), HttpStatus.BAD_REQUEST);
         }
@@ -32,7 +32,7 @@ public class MemberController {
     public ResponseEntity<Objects> login(@RequestBody MemberDTO memberDTO) {
         try {
             memberService.checkMember(memberDTO);
-            return new ResponseEntity("Login Success!", HttpStatus.OK);
+            return new ResponseEntity("로그인 성공", HttpStatus.SEE_OTHER); //나중에 로그인 성공 시 사이트 리다이렉션 예정
         } catch (IllegalArgumentException e) {
             return new ResponseEntity(e.getMessage(), HttpStatus.BAD_REQUEST);
         }
