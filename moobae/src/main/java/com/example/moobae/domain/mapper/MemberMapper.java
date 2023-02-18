@@ -7,10 +7,5 @@ import org.apache.ibatis.annotations.Mapper;
 @Mapper
 public interface MemberMapper {
     void saveMember(Member member);
-
-    MemberVO getMemberByUid(String uid);
-
-    boolean invalidUid(String uid);
-
     boolean existUid(String uid);
 }

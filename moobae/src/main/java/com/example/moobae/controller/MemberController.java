@@ -27,15 +27,5 @@ public class MemberController {
             return new ResponseEntity(e.getMessage(), HttpStatus.BAD_REQUEST);
         }
     }
-
-    @PostMapping("/login")
-    public ResponseEntity<Objects> login(@RequestBody MemberDTO memberDTO) {
-        try {
-            memberService.checkMember(memberDTO);
-            return new ResponseEntity("로그인 성공", HttpStatus.SEE_OTHER); //나중에 로그인 성공 시 사이트 리다이렉션 예정
-        } catch (IllegalArgumentException e) {
-            return new ResponseEntity(e.getMessage(), HttpStatus.BAD_REQUEST);
-        }
-    }
 }
 
