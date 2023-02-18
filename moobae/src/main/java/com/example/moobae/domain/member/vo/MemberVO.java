@@ -4,7 +4,7 @@ import lombok.Getter;
 
 @Getter
 public class MemberVO {
-    private String identity;
+    private String uid;
     private String password;
 
     private MemberVO(){}

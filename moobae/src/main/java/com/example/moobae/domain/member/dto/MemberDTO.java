@@ -4,7 +4,7 @@ import lombok.Getter;
 
 @Getter
 public class MemberDTO {
-    private String identity;
+    private String uid;
     private String password;
     private String nickname;
     private String email;

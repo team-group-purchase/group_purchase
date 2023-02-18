@@ -1,7 +1,6 @@
 package com.example.moobae.domain.member;
 
 import lombok.Builder;
-import lombok.Data;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
@@ -11,7 +10,7 @@ import java.time.LocalDateTime;
 @RequiredArgsConstructor
 public class Member {
     private final Integer id;
-    private final String identity;
+    private final String uid; // 로그인 시 입력하는 id
     private final String password;
     private final String nickname;
     private final String email;
