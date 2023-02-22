@@ -34,4 +34,14 @@ public class MemberService {
 
         memberMapper.saveMember(member);
     }
+
+    public void checkMember(MemberDTO memberDTO) {
+        if(memberMapper.invalidUid(memberDTO.getUid()))
+            throw new IllegalArgumentException("존재하지 않는 유저 아이디입니다.");
+
+        String savedPassword = memberMapper.getMemberByUid(memberDTO.getUid()).getPassword();
+
+        if(!encryption.encryptCheck(memberDTO.getPassword() , savedPassword))
+            throw new IllegalArgumentException("잘못된 비밀번호입니다.");
+    }
 }
