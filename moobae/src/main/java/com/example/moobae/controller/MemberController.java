@@ -22,17 +22,7 @@ public class MemberController {
     public ResponseEntity<Objects> signup(@RequestBody MemberDTO memberDTO) {
         try {
             memberService.signup(memberDTO);
-            return new ResponseEntity("signup Success!", HttpStatus.OK);
-        } catch (IllegalArgumentException e) {
-            return new ResponseEntity(e.getMessage(), HttpStatus.BAD_REQUEST);
-        }
-    }
-
-    @PostMapping("/login")
-    public ResponseEntity<Objects> login(@RequestBody MemberDTO memberDTO) {
-        try {
-            memberService.checkMember(memberDTO);
-            return new ResponseEntity("Login Success!", HttpStatus.OK);
+            return new ResponseEntity("회원가입 성공", HttpStatus.CREATED);
         } catch (IllegalArgumentException e) {
             return new ResponseEntity(e.getMessage(), HttpStatus.BAD_REQUEST);
         }

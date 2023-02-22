@@ -1,10 +1,11 @@
 package com.example.moobae.service;
 
 import org.mindrot.jbcrypt.BCrypt;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
-@Component
+@Service
 public class Encryption {
-    public String encryptHash(String password) { return BCrypt.hashpw(password, BCrypt.gensalt());}
-    public boolean encryptCheck(String password, String hashed) { return BCrypt.checkpw(password, hashed); }
+    public String encryptHash(String password) {
+        return BCrypt.hashpw(password, BCrypt.gensalt());
+    }
 }
