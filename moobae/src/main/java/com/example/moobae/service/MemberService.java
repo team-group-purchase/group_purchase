@@ -36,6 +36,7 @@ public class MemberService {
         memberMapper.saveMember(member);
     }
 
+    //TODO getMemberByUid로 메소드 이름 변경 예정
     public MemberVO loadMember(MemberDTO memberDTO){
         return memberMapper.getMemberByUid(memberDTO.getUid());
     }
