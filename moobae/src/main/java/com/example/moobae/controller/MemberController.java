@@ -18,10 +18,10 @@ import java.util.Objects;
 public class MemberController {
     private final MemberService memberService;
 
-    @PostMapping("/signup")
-    public ResponseEntity<Objects> signup(@RequestBody MemberDTO memberDTO) {
+    @PostMapping("/sign-up")
+    public ResponseEntity<Objects> signUp(@RequestBody MemberDTO memberDTO) {
         try {
-            memberService.signup(memberDTO);
+            memberService.signUp(memberDTO);
             return new ResponseEntity("회원가입 성공", HttpStatus.CREATED);
         } catch (IllegalArgumentException e) {
             return new ResponseEntity(e.getMessage(), HttpStatus.BAD_REQUEST);

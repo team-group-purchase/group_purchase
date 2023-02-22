@@ -15,7 +15,7 @@ public class MemberService {
     private final MemberMapper memberMapper;
     private final Encryption encryption;
 
-    public void signup(MemberDTO memberDTO){
+    public void signUp(MemberDTO memberDTO){
         if(memberMapper.existUid(memberDTO.getUid()))
             throw new IllegalArgumentException("존재하는 유저 아이디입니다.");
 
