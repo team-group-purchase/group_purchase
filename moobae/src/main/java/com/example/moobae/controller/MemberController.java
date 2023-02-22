@@ -6,10 +6,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -20,14 +17,14 @@ import java.util.Objects;
 public class MemberController {
     private final MemberService memberService;
 
-    @PostMapping("/signup")
-    public ResponseEntity<Objects> signup(MemberDTO memberDTO) {
-        memberService.signup(memberDTO);
+    @PostMapping("/sign-up")
+    public ResponseEntity<Objects> signUp(@RequestBody MemberDTO memberDTO) {
+        memberService.signUp(memberDTO);
         return new ResponseEntity("회원가입 성공", HttpStatus.CREATED);
     }
 
     @PostMapping("/login")
-    public ResponseEntity<Objects> login(MemberDTO memberDTO, HttpServletRequest request) {
+    public ResponseEntity<Objects> login(@RequestBody MemberDTO memberDTO, HttpServletRequest request) {
         memberService.checkMember(memberDTO);
         HttpSession session = request.getSession();
         session.setAttribute("memberDTO", memberDTO);

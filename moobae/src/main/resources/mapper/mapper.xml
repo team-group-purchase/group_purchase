@@ -11,6 +11,12 @@
         #{local},#{activated},#{existed},#{updatedAt},#{createdAt});
     </insert>
 
+    <select id="existUid" parameterType="String" resultType="boolean">
+        select exists(
+                       select uid from user_db where uid = #{uid}
+                   )
+    </select>
+
     <!-- 로그인 -->
     <select id="getMemberByUid" parameterType="String" resultType="com.example.moobae.domain.member.vo.MemberVO">
         SELECT uid as uid, password as password FROM user_db WHERE uid=#{uid}
@@ -19,12 +25,6 @@
     <select id="invalidUid" parameterType="String" resultType="boolean">
         select not exists(
             select uid from user_db where uid = #{uid}
-            )
-    </select>
-
-    <select id="existUid" parameterType="String" resultType="boolean">
-        select exists(
-                select uid from user_db where uid = #{uid}
             )
     </select>
 </mapper>

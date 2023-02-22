@@ -15,7 +15,7 @@ public class MemberService {
     private final MemberMapper memberMapper;
     private final Encryption encryption;
 
-    public void signup(MemberDTO memberDTO){
+    public void signUp(MemberDTO memberDTO){
         if(memberMapper.existUid(memberDTO.getUid()))
             throw new IllegalArgumentException("존재하는 유저 아이디입니다.");
 
@@ -33,10 +33,6 @@ public class MemberService {
                         .build();
 
         memberMapper.saveMember(member);
-    }
-
-    public MemberVO loadMember(MemberDTO memberDTO){
-        return memberMapper.getMemberByUid(memberDTO.getUid());
     }
 
     public void checkMember(MemberDTO memberDTO) {
