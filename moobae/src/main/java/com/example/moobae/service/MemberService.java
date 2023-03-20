@@ -36,7 +36,6 @@ public class MemberService {
 
         memberMapper.saveMember(member);
     }
-
     public void login(MemberDTO memberDTO) {
         if(memberMapper.invalidUid(memberDTO.getUid()))
             throw new IllegalArgumentException("존재하지 않는 유저 아이디입니다.");
@@ -52,4 +51,5 @@ public class MemberService {
     public void logout() {
         httpSession.invalidate();
     }
+
 }

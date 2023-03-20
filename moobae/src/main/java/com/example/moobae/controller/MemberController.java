@@ -5,14 +5,15 @@ import com.example.moobae.service.MemberService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+
 import java.util.Objects;
 
 @RestController
 @RequiredArgsConstructor
 public class MemberController {
     private final MemberService memberService;
-
 
     @PostMapping("/sign-up")
     public ResponseEntity<Objects> signUp(@RequestBody MemberDTO memberDTO) {
@@ -30,6 +31,7 @@ public class MemberController {
     public ResponseEntity<Objects> logout() {
         memberService.logout();
         return new ResponseEntity("로그아웃 성공", HttpStatus.SEE_OTHER);//나중에 로그아웃 성공 시 사이트 리다이렉션 예정
+
     }
 }
 
