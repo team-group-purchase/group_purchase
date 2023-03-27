@@ -20,5 +20,4 @@ public class Member {
     private final Boolean existed;
     private final LocalDateTime updatedAt;
     private final LocalDateTime createdAt;
-
 }

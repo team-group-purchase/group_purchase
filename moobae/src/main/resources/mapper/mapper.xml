@@ -5,7 +5,7 @@
 <mapper namespace="com.example.moobae.domain.mapper.MemberMapper">
     <!-- 회원가입 -->
     <insert id="saveMember" parameterType="com.example.moobae.domain.member.Member" useGeneratedKeys="true" keyProperty="id">
-        INSERT INTO user_db (uid, password, nickname, email, phone_number,
+        INSERT INTO member (uid, password, nickname, email, phone_number,
         local, activated, existed, updated_at, created_at)
         VALUES(#{uid},#{password},#{nickname},#{email},#{phoneNumber},
         #{local},#{activated},#{existed},#{updatedAt},#{createdAt});
@@ -13,18 +13,18 @@
 
     <select id="existUid" parameterType="String" resultType="boolean">
         select exists(
-                       select uid from user_db where uid = #{uid}
+                       select uid from member where uid = #{uid}
                    )
     </select>
 
     <!-- 로그인 -->
-    <select id="getMemberByUid" parameterType="String" resultType="com.example.moobae.domain.member.vo.MemberVO">
-        SELECT uid as uid, password as password FROM user_db WHERE uid=#{uid}
+    <select id="getMemberByUid" parameterType="String" resultType="com.example.moobae.domain.member.vo.MemberVo">
+        SELECT uid, password FROM member WHERE uid=#{uid}
     </select>
 
     <select id="invalidUid" parameterType="String" resultType="boolean">
         select not exists(
-            select uid from user_db where uid = #{uid}
+            select uid from member where uid = #{uid}
             )
     </select>
 </mapper>
