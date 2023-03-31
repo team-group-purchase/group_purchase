@@ -8,15 +8,22 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.HashMap;
+import java.util.Map;
+
 @RestController
 @RequiredArgsConstructor
 public class MemberController {
     private final MemberService memberService;
 
     @PostMapping("/sign-up")
-    public void signup(@RequestBody Member member) {
+    public  Map<String, Object> signup(@RequestBody Member member) {
 
         memberService.join(member);
+        Map<String, Object> ret = new HashMap<>();
+        ret.put("result",true);
+        ret.put("msg","true");
+        return ret;
     }
 
     @PostMapping("/sign-in")
