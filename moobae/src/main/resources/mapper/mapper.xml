@@ -27,4 +27,7 @@
             select uid from member where uid = #{uid}
             )
     </select>
+    <select id="getId" parameterType="String" resultType="Integer">
+        select id from member where uid = #{uid}
+    </select>
 </mapper>

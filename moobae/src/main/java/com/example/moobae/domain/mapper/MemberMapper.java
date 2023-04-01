@@ -10,4 +10,5 @@ public interface MemberMapper {
     MemberVo getMemberByUid(String uid);
     boolean invalidUid(String uid);
     boolean existUid(String uid);
+    Integer getId(String uid);
 }
