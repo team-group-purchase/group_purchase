@@ -13,4 +13,8 @@ public class GlobalExceptionHandler {
     public ResponseEntity<Objects> handleIllegalArgumentException(IllegalArgumentException e) {
         return new ResponseEntity(e.getMessage(), HttpStatus.BAD_REQUEST);
     }
+
+    public ResponseEntity<Objects> handleNullPointerException(NullPointerException e) {
+        return new ResponseEntity(e.getMessage(), HttpStatus.BAD_REQUEST);
+    }
 }

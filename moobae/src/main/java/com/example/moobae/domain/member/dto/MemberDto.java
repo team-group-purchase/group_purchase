@@ -3,7 +3,7 @@ package com.example.moobae.domain.member.dto;
 import lombok.Getter;
 
 @Getter
-public class MemberDTO {
+public class MemberDto {
     private String uid;
     private String password;
     private String nickname;
@@ -11,6 +11,5 @@ public class MemberDTO {
     private String phoneNumber;
     private String local;
 
-    private MemberDTO(){}
-
+    private MemberDto(){}
 }
